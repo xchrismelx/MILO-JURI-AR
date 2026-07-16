@@ -1,78 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MILO</title>
 
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script type="module"
+src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#111;
-    color:white;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+
+background:#0f0f0f;
+color:white;
+
+font-family:Inter,sans-serif;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+min-height:100vh;
+
 }
 
 .container{
-    max-width:900px;
-    width:100%;
-    text-align:center;
-    padding:40px;
+
+width:min(1000px,95%);
+
+padding:40px;
+
+text-align:center;
+
 }
 
 h1{
-    font-size:3rem;
-    font-weight:300;
-    letter-spacing:.15em;
-    margin-bottom:10px;
+
+font-family:"Cormorant Garamond",serif;
+
+font-size:4rem;
+
+font-weight:300;
+
+letter-spacing:.18em;
+
+margin-bottom:10px;
+
 }
 
-p{
-    color:#ccc;
-    margin-bottom:30px;
-    line-height:1.6;
+.subtitle{
+
+color:#bbbbbb;
+
+font-size:1rem;
+
+letter-spacing:.2em;
+
+text-transform:uppercase;
+
+margin-bottom:30px;
+
+}
+
+.description{
+
+max-width:620px;
+
+margin:auto;
+
+line-height:1.8;
+
+color:#d0d0d0;
+
+margin-bottom:35px;
+
 }
 
 model-viewer{
-    width:100%;
-    height:65vh;
-    background:#1a1a1a;
-    border-radius:20px;
+
+width:100%;
+
+height:65vh;
+
+background:#1a1a1a;
+
+border-radius:18px;
+
+overflow:hidden;
+
+--poster-color:#1a1a1a;
+
 }
 
-.button{
-    display:inline-block;
-    margin-top:25px;
-    padding:16px 34px;
-    border-radius:40px;
-    background:white;
-    color:black;
-    text-decoration:none;
-    font-weight:600;
-    transition:.25s;
+.arButton{
+
+background:white;
+
+color:black;
+
+padding:16px 34px;
+
+border-radius:100px;
+
+font-size:16px;
+
+font-weight:600;
+
+border:none;
+
+cursor:pointer;
+
+transition:.25s;
+
+box-shadow:0 8px 25px rgba(0,0,0,.35);
+
 }
 
-.button:hover{
-    transform:scale(1.05);
+.arButton:hover{
+
+transform:translateY(-2px);
+
 }
 
 footer{
-    margin-top:25px;
-    color:#888;
-    font-size:.9rem;
+
+margin-top:35px;
+
+color:#888;
+
+font-size:.85rem;
+
 }
+
 </style>
 
 </head>
@@ -83,41 +160,62 @@ footer{
 
 <h1>MILO</h1>
 
-<p>
-Explore the sculpture in augmented reality.<br>
-Tap the button below and place it in your own space.
-</p>
+<div class="subtitle">
+Augmented Reality Experience
+</div>
+
+<div class="description">
+
+Place the sculpture into your own surroundings.
+
+Move around your space, tap the floor to position the work, and explore it from every angle.
+
+</div>
 
 <model-viewer
+
 src="MILO.glb"
+
 ios-src="MILO.usdz"
 
 camera-controls
+
 auto-rotate
 
-ar
-ar-modes="webxr scene-viewer quick-look"
+rotation-per-second="18deg"
 
-shadow-intensity="1.2"
+shadow-intensity="1.1"
+
 environment-image="neutral"
 
-exposure="1.1"
+exposure="1.15"
+
+touch-action="pan-y"
 
 loading="eager"
 
+ar
+
+ar-modes="webxr scene-viewer quick-look"
+
 >
 
-<button slot="ar-button" class="button">
+<button slot="ar-button" class="arButton">
+
 View in AR
+
 </button>
 
 </model-viewer>
 
 <footer>
-Move around your space to place the sculpture.
+
+Works on modern Android and iPhone devices.
+
 </footer>
 
 </div>
 
 </body>
+
 </html>
