@@ -9,7 +9,7 @@
 <title>MILO</title>
 
 <script type="module"
-src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+src="https://unpkg.com/@google/model-viewer@4.1.0/dist/model-viewer.min.js">
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,6 +140,34 @@ transform:translateY(-2px);
 
 }
 
+.actions{
+
+display:flex;
+
+justify-content:center;
+
+gap:12px;
+
+flex-wrap:wrap;
+
+margin-top:18px;
+
+}
+
+.vrButton{
+
+display:inline-block;
+
+background:transparent;
+
+color:white;
+
+border:1px solid #666;
+
+text-decoration:none;
+
+}
+
 footer{
 
 margin-top:35px;
@@ -178,6 +206,8 @@ src="MILO.glb"
 
 ios-src="MILO.usdz"
 
+alt="3D model of the MILO sculpture"
+
 camera-controls
 
 auto-rotate
@@ -200,7 +230,7 @@ ar-modes="webxr scene-viewer quick-look"
 
 >
 
-<button slot="ar-button" class="arButton">
+	<button slot="ar-button" class="arButton" aria-label="View the MILO sculpture in augmented reality">
 
 View in AR
 
@@ -208,9 +238,19 @@ View in AR
 
 </model-viewer>
 
+<div class="actions">
+
+<a class="arButton vrButton" href="vr.html" aria-label="Open the MILO sculpture in a virtual reality viewer">
+
+View in VR
+
+</a>
+
+</div>
+
 <footer>
 
-Works on modern Android and iPhone devices.
+Works on modern Android and iPhone devices. VR requires a WebXR-compatible headset and browser.
 
 </footer>
 
